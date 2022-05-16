@@ -1,5 +1,5 @@
 # Installation
-> `npm install --save @types/bookshelf`
+> `npm install --D https://github.com/shuttlershq/bookshelf-types.git`
 
 # Summary
 This package contains type definitions for bookshelfjs (http://bookshelfjs.org/).
