@@ -95,13 +95,13 @@ declare namespace Bookshelf {
         static extend<T extends Model<any>>(prototypeProperties?: any, classProperties?: any): Function; // should return a type
         static fetchAll<T extends Model<any>>(): BlueBird<Collection<T>>;
         /** @deprecated should use `new` objects instead. */
-        static forge<T>(attributes?: any, options?: ModelOptions): T;
-        static where<T>(properties: { [key: string]: any }): T;
+        static forge<T>(attributes?: any, options?: ModelOptions): Model<any>;
+        static where<T>(properties: { [key: string]: any }): Model<any>;
         static where<T>(
             key: string,
             operatorOrValue: string | number | boolean,
             valueIfOperator?: string | string[] | number | number[] | boolean,
-        ): T;
+        ): Model<any>;
 
         belongsTo<R extends Model<any>>(
             target: { new (...args: any[]): R },
