@@ -131,7 +131,6 @@ declare namespace Bookshelf {
         first(options?: FetchOptions): BlueBird<T>;
         last(options?: FetchOptions): BlueBird<T>;
         fetchAll(options?: FetchAllOptions): BlueBird<Collection<T>>;
-        get(options?: FetchAllOptions): BlueBird<Collection<T>>;
         fetchPage(options?: FetchPageOptions): BlueBird<Collection<T> & Pagination>;
         hasMany<R extends Model<any>>(
             target: { new (...args: any[]): R },
