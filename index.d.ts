@@ -161,8 +161,8 @@ declare namespace Bookshelf {
         orderBy(column: string, order?: SortOrder): T;
         static query(callback: (qb: Knex.QueryBuilder) => void): Model<any>;
         // Declaration order matters otherwise TypeScript gets confused between query() and query(...query: string[])
-        query(): Knex.QueryBuilder;
-        query(callback: (qb: Knex.QueryBuilder) => void): Knex.QueryBuilder;
+        query(): Model<any>;
+        query(callback: (qb: Knex.QueryBuilder) => void): Model<any>;
         query(...query: string[]): T;
         query(query: { [key: string]: any }): T;
 
