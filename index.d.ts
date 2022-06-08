@@ -179,6 +179,8 @@ declare namespace Bookshelf {
             operatorOrValue: string | number | boolean,
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Knex.QueryBuilder;
+        whereIn<T>(key: string, values: any[] ): Model<any>;
+        whereNotIn<T>(key: string, values: any[] ): Model<any>;
 
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/errors.js
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/model.js#L1280
