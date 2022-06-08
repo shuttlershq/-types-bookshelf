@@ -96,12 +96,15 @@ declare namespace Bookshelf {
         static fetchAll<T extends Model<any>>(): BlueBird<Collection<T>>;
         /** @deprecated should use `new` objects instead. */
         static forge<T>(attributes?: any, options?: ModelOptions): Model<any>;
+        static whereIn<T>(key: string, values: any[] ): Model<any>;
+        static whereNotIn<T>(key: string, values: any[] ): Model<any>;
         static where<T>(properties: { [key: string]: any }): Model<any>;
         static where<T>(
             key: string,
             operatorOrValue: string | number | boolean,
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Model<any>;
+        buildQuery(options?: FetchOptions): Promise<any>;
 
         belongsTo<R extends Model<any>>(
             target: { new (...args: any[]): R },
@@ -125,7 +128,10 @@ declare namespace Bookshelf {
          * @throws {NotFoundError} if no result and `options.required !== false`
          */
         fetch(options?: FetchOptions): BlueBird<T>;
+        first(options?: FetchOptions): BlueBird<T>;
+        last(options?: FetchOptions): BlueBird<T>;
         fetchAll(options?: FetchAllOptions): BlueBird<Collection<T>>;
+        get(options?: FetchAllOptions): BlueBird<Collection<T>>;
         fetchPage(options?: FetchPageOptions): BlueBird<Collection<T> & Pagination>;
         hasMany<R extends Model<any>>(
             target: { new (...args: any[]): R },
@@ -156,7 +162,7 @@ declare namespace Bookshelf {
         static query(callback: (qb: Knex.QueryBuilder) => void): Model<any>;
         // Declaration order matters otherwise TypeScript gets confused between query() and query(...query: string[])
         query(): Knex.QueryBuilder;
-        query(callback: (qb: Knex.QueryBuilder) => void): T;
+        query(callback: (qb: Knex.QueryBuilder) => void): Knex.QueryBuilder;
         query(...query: string[]): T;
         query(query: { [key: string]: any }): T;
 
@@ -173,7 +179,7 @@ declare namespace Bookshelf {
             key: string,
             operatorOrValue: string | number | boolean,
             valueIfOperator?: string | string[] | number | number[] | boolean,
-        ): T;
+        ): Knex.QueryBuilder;
 
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/errors.js
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/model.js#L1280
