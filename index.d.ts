@@ -105,12 +105,6 @@ declare namespace Bookshelf {
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Model<any>;
 
-        /**
-         * @throws {NoRowsUpdatedError} if updating and `options.required !== false`
-         */
-        static save(key?: string, val?: any, options?: SaveOptions): BlueBird<T>;
-        static save(attrs?: { [key: string]: any }, options?: SaveOptions): BlueBird<T>;
-
         buildQuery(options?: FetchOptions): Promise<any>;
 
         belongsTo<R extends Model<any>>(
