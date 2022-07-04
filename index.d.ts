@@ -180,6 +180,12 @@ declare namespace Bookshelf {
             operatorOrValue: string | number | boolean,
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Model<any>;
+        whereNot(properties: { [key: string]: any }): T;
+        whereNot(
+            key: string,
+            operatorOrValue: string | number | boolean,
+            valueIfOperator?: string | string[] | number | number[] | boolean,
+        ): Model<any>;
         whereIn<T>(key: string, values: any[] ): Model<any>;
         whereNotIn<T>(key: string, values: any[] ): Model<any>;
 
