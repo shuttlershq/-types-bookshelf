@@ -105,6 +105,9 @@ declare namespace Bookshelf {
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Model<any>;
 
+        static whereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
+        static orWhereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
+
         buildQuery(options?: FetchOptions): Promise<any>;
 
         belongsTo<R extends Model<any>>(
@@ -188,6 +191,8 @@ declare namespace Bookshelf {
         ): Model<any>;
         whereIn<T>(key: string, values: any[] ): Model<any>;
         whereNotIn<T>(key: string, values: any[] ): Model<any>;
+        whereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
+        orWhereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
 
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/errors.js
         // See https://github.com/tgriesser/bookshelf/blob/0.9.4/src/model.js#L1280
