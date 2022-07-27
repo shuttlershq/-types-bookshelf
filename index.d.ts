@@ -190,6 +190,7 @@ declare namespace Bookshelf {
             valueIfOperator?: string | string[] | number | number[] | boolean,
         ): Model<any>;
         whereIn<T>(key: string, values: any[] ): Model<any>;
+        whereBetween<T>(key: string, values: any[] ): Model<any>;
         whereNotIn<T>(key: string, values: any[] ): Model<any>;
         whereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
         orWhereHas<T>(relationName: string, callback?: (qb: Knex.QueryBuilder) => void, operator?: any, operand1?: any,  operand2?: any): Model<any>;
