@@ -331,6 +331,7 @@ declare namespace Bookshelf {
             interim: ModelSubclass,
             throughForeignKey?: string,
             otherKey?: string,
+            otherForeignKey?: string,
         ): Collection<R>;
         updatePivot(attributes: any, options?: PivotOptions): BlueBird<number>;
         withPivot(columns: string[]): Collection<T>;
