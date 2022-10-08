@@ -111,12 +111,12 @@ declare namespace Bookshelf {
         buildQuery(options?: FetchOptions): Promise<any>;
 
         belongsTo<R extends Model<any>>(
-            target: { new (...args: any[]): R },
+            target: { new (...args: any[]): R } | string,
             foreignKey?: string,
             foreignKeyTarget?: string,
         ): R;
         belongsToMany<R extends Model<any>>(
-            target: { new (...args: any[]): R },
+            target: { new (...args: any[]): R } | string,
             table?: string,
             foreignKey?: string,
             otherKey?: string,
@@ -137,12 +137,12 @@ declare namespace Bookshelf {
         fetchAll(options?: FetchAllOptions): BlueBird<Collection<T>>;
         fetchPage(options?: FetchPageOptions): BlueBird<Collection<T> & Pagination>;
         hasMany<R extends Model<any>>(
-            target: { new (...args: any[]): R },
+            target: { new (...args: any[]): R } | string,
             foreignKey?: string,
             foreignKeyTarget?: string,
         ): Collection<R>;
         hasOne<R extends Model<any>>(
-            target: { new (...args: any[]): R },
+            target: { new (...args: any[]): R } | string,
             foreignKey?: string,
             foreignKeyTarget?: string,
         ): R;
@@ -176,7 +176,7 @@ declare namespace Bookshelf {
          */
         save(key?: string, val?: any, options?: SaveOptions): BlueBird<T>;
         save(attrs?: { [key: string]: any }, options?: SaveOptions): BlueBird<T>;
-        through<R extends Model<any>>(interim: ModelSubclass, throughForeignKey?: string, otherKey?: string, throughForeignKeyTarget?: string, otherKeyTarget?: string): R;
+        through<R extends Model<any>>(interim: ModelSubclass | string, throughForeignKey?: string, otherKey?: string, throughForeignKeyTarget?: string, otherKeyTarget?: string): R;
         where(properties: { [key: string]: any }): T;
         where(
             key: string,
@@ -328,7 +328,7 @@ declare namespace Bookshelf {
 
         resetQuery(): Collection<T>;
         through<R extends Model<any>>(
-            interim: ModelSubclass,
+            interim: ModelSubclass | string,
             throughForeignKey?: string,
             otherKey?: string,
             otherForeignKey?: string,
