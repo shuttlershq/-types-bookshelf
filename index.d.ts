@@ -178,6 +178,7 @@ declare namespace Bookshelf {
         save(attrs?: { [key: string]: any }, options?: SaveOptions): BlueBird<T>;
         through<R extends Model<any>>(interim: ModelSubclass | string, throughForeignKey?: string, otherKey?: string, throughForeignKeyTarget?: string, otherKeyTarget?: string): R;
         where(properties: { [key: string]: any }): T;
+        orWhere(properties: { [key: string]: any }): T;
         where(
             key: string,
             operatorOrValue: string | number | boolean,
